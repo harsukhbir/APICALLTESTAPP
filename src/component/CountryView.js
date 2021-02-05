@@ -26,15 +26,15 @@ function CountryView(props) {
                 />
                 <ShowLineWidget
                     title={"Capital"}
-                    value={props.data.capital}
+                    value={props.data.capital ? props.data.capital : "N/A"}
                 />
                 <ShowLineWidget
                     title={"Population"}
-                    value={props.data.population}
+                    value={props.data.population ? props.data.population : "N/A"}
                 />
                 <ShowLineWidget
                     title={"Region"}
-                    value={props.data.region}
+                    value={props.data.region ? props.data.region : "N/A"}
                 />
             </View>
         </View>

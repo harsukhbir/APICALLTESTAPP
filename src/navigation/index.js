@@ -15,13 +15,18 @@ function TopNavigation() {
     const dispatch = useDispatch();
 
     const getCountries = async () => {
-        axios.get("https://restcountries.eu/rest/v2/all")
-            .then((result) => {
-                dispatch(setCountriesData(result.data))
-            })
-            .catch((error) => {
-                console.log(error);
-            })
+        try {
+            axios.get("https://restcountries.eu/rest/v2/all")
+                .then((result) => {
+                    dispatch(setCountriesData(result.data))
+                })
+                .catch((error) => {
+                    console.log(error);
+                })
+        }
+        catch (err) {
+            console.log(err);
+        }
     }
 
     React.useEffect(() => {
@@ -31,7 +36,7 @@ function TopNavigation() {
         <NavigationContainer>
             <Drawer.Navigator>
                 <Drawer.Screen name="Home" component={Home} />
-                <Drawer.Screen name="ShowCountries" component={ShowCountries} />
+                <Drawer.Screen name="Show Countries" component={ShowCountries} />
             </Drawer.Navigator>
         </NavigationContainer>
     )
